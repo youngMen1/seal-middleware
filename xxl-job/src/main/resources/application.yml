@@ -1,0 +1,17 @@
+
+
+
+
+
+### xxl-job admin address list, such as "http://address" or "http://address01,http://address02"
+xxl:
+  job:
+    accessToken:
+    admin:
+      addresses: http://172.18.21.144:8080/xxl-job-admin-1.9.1
+    executor:
+      appname: flight-job
+      ip:
+      port: 9990
+      logpath: /data/applogs/xxl-job/jobhandler
+      logretentiondays: -1
