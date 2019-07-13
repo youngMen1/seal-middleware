@@ -37,7 +37,7 @@ public class XxlJobConfig {
 
     @Bean(initMethod = "start", destroyMethod = "destroy")
     public XxlJobExecutor xxlJobExecutor() {
-        logger.info(">>>>>>>>>>> xxl-job config init.");
+        logger.info(">>>>>>>>>>>1111111111111111111111111111111111111111111111111111111111111111111111 xxl-job config init.");
         XxlJobExecutor xxlJobExecutor = new XxlJobExecutor();
         xxlJobExecutor.setAdminAddresses(adminAddresses);
         xxlJobExecutor.setAppName(appName);

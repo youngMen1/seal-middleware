@@ -1,17 +1,29 @@
-
-
-
-
-
+spring:
+  application:
+    name: xxl-job
+server:
+  port: 90001
 ### xxl-job admin address list, such as "http://address" or "http://address01,http://address02"
 xxl:
   job:
     accessToken:
     admin:
-      addresses: http://172.18.21.144:8080/xxl-job-admin-1.9.1
+      addresses: http://192.168.1.135:8080/xxl-job-admin
     executor:
-      appname: flight-job
-      ip:
+      appname: sealblog-xxl-job
+      ip: 192.168.1.135
       port: 9990
       logpath: /data/applogs/xxl-job/jobhandler
       logretentiondays: -1
+
+eureka:
+  instance:
+    prefer-ip-address: true
+    status-page-url-path: /actuator/info
+    health-check-url-path: /actuator/health
+  client:
+    #此项目不作为客户端注册
+    register-with-eureka: true
+    fetch-registry: true
+    service-url:
+      defaultZone: http://211.159.189.77:22001/eureka/,http://134.175.12.243:22002/eureka/

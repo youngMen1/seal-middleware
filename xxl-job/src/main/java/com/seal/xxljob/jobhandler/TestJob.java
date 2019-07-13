@@ -18,6 +18,7 @@ import org.springframework.stereotype.Component;
 public class TestJob extends IJobHandler {
     @Override
     public ReturnT<String> execute(String s) {
+        System.out.println("111111111111111111111111111");
         return SUCCESS;
     }
 }
