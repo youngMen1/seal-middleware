@@ -8,10 +8,10 @@ xxl:
   job:
     accessToken:
     admin:
-      addresses: http://192.168.1.135:8080/xxl-job-admin
+      addresses: http://127.0.0.1:8080/xxl-job-admin
     executor:
       appname: sealblog-xxl-job
-      ip: 192.168.1.135
+      ip:
       port: 9990
       logpath: /data/applogs/xxl-job/jobhandler
       logretentiondays: -1

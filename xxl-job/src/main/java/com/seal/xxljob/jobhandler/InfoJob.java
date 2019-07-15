@@ -14,11 +14,16 @@ import org.springframework.stereotype.Component;
  **/
 @Slf4j
 @Component
-@JobHandler(value = "TestJob")
-public class TestJob extends IJobHandler {
+@JobHandler(value = "InfoJob")
+public class InfoJob extends IJobHandler {
     @Override
     public ReturnT<String> execute(String s) {
+        log.info("sdfsfsssssssssssssssssssss");
+        log.info("bbbbbbbbbbbbbbbbbbbbbbbb");
         System.out.println("111111111111111111111111111");
+        System.out.println("222222222222222222222222222");
+        System.out.println("333333333333333333333333333");
+        System.out.println("444444444444444444444444444");
         return SUCCESS;
     }
 }
