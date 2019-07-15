@@ -10,10 +10,13 @@ import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 
 /**
- * https://blog.csdn.net/u011706563/article/details/89258029
+ * @author zhiqiang.feng
+ * @version 1.0
+ * @date-time 2019/7/12 18:03
+ * @description https://blog.csdn.net/u011706563/article/details/89258029
  * 对比两者配置文件发现 两个版本所创建的JobExecutor不同 当高版本admin调用方 调用低版本job任务时就会出现
  * 当admin和被调用方的版本不一致时会导致 执行器无法注册！
- */
+ **/
 @Configuration
 @ComponentScan(basePackages = "com.seal.xxljob.jobhandler")
 public class XxlJobConfig {
