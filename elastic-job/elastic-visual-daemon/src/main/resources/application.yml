@@ -1,0 +1,62 @@
+
+server:
+  port: 9002
+
+
+## 定时任务
+spring:
+  application:
+    name: elastic-visual-daemon
+  # 保存定时任务的数据源
+  datasource:
+    name: test
+    type: com.alibaba.druid.pool.DruidDataSource
+    druid:
+      driver-class-name: com.mysql.jdbc.Driver
+      url: jdbc:mysql://192.168.1.XX:3306/gdfl_channel?allowMultiQueries=true&useSSL=false&serverTimezone=UTC
+      username: root
+      password: Gdfl@123456
+  elasticjob:
+    # 分布式任务协调依赖zookeeper
+    zookeeper:
+      // TODO
+      server-lists: 47.107.152.xx:2181
+      namespace: elastic-visual-daemon
+    # 普通任务
+    simples:
+      spring-simple-job:
+        job-class: com.seal.daemon.elasticvisualdaemon.job.TplhkSimpleJob
+        cron: 0/2 * * * * ?
+        sharding-total-count: 3
+        sharding-item-parameters: 0=service1,1=service2,2=service3
+        eventTraceRdbDataSource: 'dataSource'
+        listener:
+          listener-class: com.seal.daemon.elasticvisualdaemon.listener.TplhkElasticJobListener
+      spring-simple-job2:
+        job-class: com.seal.daemon.elasticvisualdaemon.job.TplhkSimpleJob2
+        cron: 0/2 * * * * ?
+        sharding-total-count: 3
+        sharding-item-parameters: 0=service1,1=service2,2=service3
+        eventTraceRdbDataSource: 'dataSource'
+        listener:
+          listener-class: com.seal.daemon.elasticvisualdaemon.listener.TplhkElasticJobListener
+    # 简单任务
+    dataflows:
+      spring-dataflow-job:
+        job-class: com.seal.daemon.elasticvisualdaemon.job.TplhkDataflowJob
+        cron: 0/2 * * * * ?
+        sharding-total-count: 3
+        sharding-item-parameters: 0=service1,1=service2,2=service3
+        streaming-process: true
+        eventTraceRdbDataSource: 'dataSource'
+        listener:
+          distributed-listener-class: com.seal.daemon.elasticvisualdaemon.listener.TplhkDistributeElasticJobListener
+          started-timeout-milliseconds: 5000
+          completed-timeout-milliseconds: 10000
+# 注册中心配置
+eureka:
+  instance:
+    prefer-ip-address: true
+  client:
+    service-url:
+      defaultZone: http://211.159.189.77:22001/eureka/,http://134.175.12.243:22002/eureka/
