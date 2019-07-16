@@ -3,7 +3,6 @@ package com.seal.daemon.elasticvisualdaemon;
 import com.seal.common.annotation.EnableTplhkJob;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.cloud.client.SpringCloudApplication;
 
 /**
  * @author zhangxinxin
