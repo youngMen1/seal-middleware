@@ -33,6 +33,11 @@ public class ElasticJobAutoConfiguration {
     @Autowired
     private ElasticJobProperties elasticJobProperties;
 
+    /**
+     * 定义Zookeeper注册中心
+     * 和定义作业配置对象
+     * @return
+     */
     @Bean(name = DEFAULT_REGISTRY_CENTER_NAME, initMethod = "init")
     @ConditionalOnMissingBean
     public ZookeeperRegistryCenter elasticJobRegistryCenter() {

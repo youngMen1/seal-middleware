@@ -73,7 +73,7 @@ public class ElasticJobProperties {
         /**
          * 最大重试次数
          */
-        private int maxRetries = 3;
+        private int maxRetries = 10;
 
         /**
          * 连接超时时间
@@ -85,7 +85,7 @@ public class ElasticJobProperties {
          * 会话超时时间
          * 单位：毫秒
          */
-        private int sessionTimeoutMilliseconds = 60000;
+        private int sessionTimeoutMilliseconds = 100000;
 
         /**
          * 连接Zookeeper的权限令牌
