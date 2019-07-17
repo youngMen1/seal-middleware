@@ -6,10 +6,11 @@ import com.dangdang.ddframe.job.api.simple.SimpleJob;
 import lombok.extern.slf4j.Slf4j;
 
 /**
- * @author zhangxinxin
- * @date 2018/2/7
- * 测试Job
- */
+ * @author zhiqiang.feng
+ * @version 1.0
+ * @date-time 2019/7/9 17:45
+ * @description 测试Job
+ **/
 @Slf4j
 public class TplhkSimpleJob implements SimpleJob {
 	/**

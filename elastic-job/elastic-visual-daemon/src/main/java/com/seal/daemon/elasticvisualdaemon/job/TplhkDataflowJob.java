@@ -7,9 +7,11 @@ import com.dangdang.ddframe.job.api.dataflow.DataflowJob;
 import java.util.List;
 
 /**
- * @author zhangxinxin
- * @date 2018/2/8
- */
+ * @author zhiqiang.feng
+ * @version 1.0
+ * @date-time 2019/7/9 17:45
+ * @description
+ **/
 public class TplhkDataflowJob implements DataflowJob<Integer> {
 
     @Override

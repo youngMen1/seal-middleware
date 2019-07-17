@@ -33,10 +33,11 @@ import static com.seal.common.ElasticJobAutoConfiguration.DEFAULT_REGISTRY_CENTE
 
 
 /**
- * @author zhangxinxin
- * @date 2018/7/24
- * 任务初始化基类
- */
+ * @author zhiqiang.feng
+ * @version 1.0
+ * @date-time 2019/7/9 17:45
+ * @description 任务初始化基类
+ **/
 public abstract class AbstractJobInitialization implements ApplicationContextAware {
 
 	protected ApplicationContext applicationContext;

@@ -4,10 +4,11 @@ import com.dangdang.ddframe.job.executor.ShardingContexts;
 import com.dangdang.ddframe.job.lite.api.listener.ElasticJobListener;
 
 /**
- * @author zhangxinxin
- * @date 2018/7/24
- * 任务监听器
- */
+ * @author zhiqiang.feng
+ * @version 1.0
+ * @date-time 2019/7/9 17:45
+ * @description 任务监听器
+ **/
 public class TplhkElasticJobListener implements ElasticJobListener {
 
 	@Override

@@ -34,8 +34,7 @@ public class ElasticJobAutoConfiguration {
     private ElasticJobProperties elasticJobProperties;
 
     /**
-     * 定义Zookeeper注册中心
-     * 和定义作业配置对象
+     * 初始化Zookeeper注册中心
      * @return
      */
     @Bean(name = DEFAULT_REGISTRY_CENTER_NAME, initMethod = "init")

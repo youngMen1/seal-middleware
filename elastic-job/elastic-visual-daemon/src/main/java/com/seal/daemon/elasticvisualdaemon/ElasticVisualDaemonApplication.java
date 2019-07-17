@@ -5,7 +5,7 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 /**
- * @author zhangxinxin
+ * @author zhiqiang.feng
  * @date 2018/7/24
  * elastic-job服务
  * 注解@SpringCloudApplication包括：
@@ -16,7 +16,6 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
  * 断路器注解。对于SpringCloud来说，
  * 这是每一微服务必须应有的三个注解，
  * 所以才推出了@SpringCloudApplication这一注解集合。
-
  */
 @EnableTplhkJob
 @SpringBootApplication

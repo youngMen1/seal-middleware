@@ -9,10 +9,11 @@ import java.util.Map;
 
 
 /**
- * @author zhangxinxin
- * @date 2018/7/24
- * 脚本任务初始
- */
+ * @author zhiqiang.feng
+ * @version 1.0
+ * @date-time 2019/7/9 17:45
+ * @description 脚本任务初始
+ **/
 public class ScriptJobInitialization extends AbstractJobInitialization {
 
 	private Map<String, ElasticJobProperties.ScriptConfiguration> scriptConfigurationMap;
