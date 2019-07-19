@@ -1,5 +1,6 @@
 package com.seal.kafka.springbootkafka.handler;
 
+import lombok.extern.slf4j.Slf4j;
 import org.apache.kafka.clients.consumer.ConsumerRecord;
 import org.springframework.kafka.annotation.KafkaListener;
 import org.springframework.stereotype.Component;
@@ -10,6 +11,7 @@ import org.springframework.stereotype.Component;
  * @date-time 2019/7/19 16:23
  * @description 消费者
  **/
+@Slf4j
 @Component
 public class KafkaConsumerHandler {
 
