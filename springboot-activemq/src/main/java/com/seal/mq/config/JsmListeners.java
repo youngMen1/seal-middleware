@@ -8,7 +8,7 @@ import org.springframework.jms.annotation.EnableJms;
 
 @Configuration
 @EnableJms
-public class JSMListeners {
+public class JsmListeners {
 
 	/**
 	 * 点对点
