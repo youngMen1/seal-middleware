@@ -7,10 +7,10 @@ public interface ActiveMqProductService {
     /**
      * 发送消息
      *
-     * @param destination
+     * @param queueName
      * @param message
      */
-    void sendMessage(String destination, String message);
+    void sendMessage(String queueName, String message);
 
 
     /**

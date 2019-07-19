@@ -22,9 +22,9 @@ public class ActiveMqProductServiceImpl implements ActiveMqProductService {
     private JmsMessagingTemplate jmsMessagingTemplate;
 
     @Override
-    public void sendMessage(String destination, String message) {
+    public void sendMessage(String queueName, String message) {
 
-        jmsMessagingTemplate.convertAndSend(destination, message);
+        jmsMessagingTemplate.convertAndSend(queueName, message);
 
     }
 
