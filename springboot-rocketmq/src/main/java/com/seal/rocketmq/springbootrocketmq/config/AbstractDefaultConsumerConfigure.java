@@ -52,9 +52,9 @@ public abstract class AbstractDefaultConsumerConfigure {
     /**
      * 处理body的业务
      *
-     * @param msgs
+     * @param msg
      * @return
      */
-    public abstract ConsumeConcurrentlyStatus dealBody(List<MessageExt> msgs);
+    public abstract ConsumeConcurrentlyStatus dealBody(List<MessageExt> msg);
 
 }
