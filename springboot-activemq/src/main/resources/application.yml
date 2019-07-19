@@ -1,1 +1,20 @@
-
+server:
+  port: 9002
+spring:
+  appliction:
+    name: springboot-activemq
+  activemq:
+    broker-url: tcp://localhost:61616
+    in-memory: true
+    user: admin
+    password: admin
+    pool:
+      enabled: true
+      max-connections: 50
+      expiry-timeout: 10000
+      idle-timeout: 30000
+  jms:
+    # 队列模式:配置spring.jms.pub-sub-domain为false
+    # 订阅模式:配置spring.jms.pub-sub-domain为true
+    # 默认情况下activemq提供的是queue模式，若要使用topic模式需要配置pub-sub-domain为true
+    pub-sub-domain: false
