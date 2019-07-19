@@ -16,6 +16,7 @@ import org.springframework.stereotype.Component;
 @Component
 @JobHandler(value = "InfoJob")
 public class InfoJob extends IJobHandler {
+
     @Override
     public ReturnT<String> execute(String s) {
         System.out.println("111111111111111111111111111");
