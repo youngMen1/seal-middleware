@@ -1,4 +1,4 @@
-package com.seal.mq.config;
+package com.seal.activemq.config;
 
 import org.apache.activemq.command.ActiveMQQueue;
 import org.apache.activemq.command.ActiveMQTopic;

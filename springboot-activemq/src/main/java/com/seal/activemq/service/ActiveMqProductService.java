@@ -1,4 +1,4 @@
-package com.seal.mq.service;
+package com.seal.activemq.service;
 
 import javax.jms.Destination;
 

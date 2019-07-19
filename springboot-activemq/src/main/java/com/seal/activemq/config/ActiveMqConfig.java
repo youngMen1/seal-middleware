@@ -1,4 +1,4 @@
-package com.seal.mq.config;
+package com.seal.activemq.config;
 
 /**
  * @author zhiqiang.feng

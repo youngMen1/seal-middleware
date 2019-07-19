@@ -1,4 +1,4 @@
-package com.seal.mq;
+package com.seal.activemq;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

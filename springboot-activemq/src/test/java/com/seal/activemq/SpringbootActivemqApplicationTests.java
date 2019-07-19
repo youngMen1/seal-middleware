@@ -1,4 +1,4 @@
-package com.seal.mq;
+package com.seal.activemq;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;

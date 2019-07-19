@@ -1,6 +1,6 @@
-package com.seal.mq.service.impl;
+package com.seal.activemq.service.impl;
 
-import com.seal.mq.service.ActiveMqProductService;
+import com.seal.activemq.service.ActiveMqProductService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jms.core.JmsMessagingTemplate;

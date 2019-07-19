@@ -1,6 +1,6 @@
-package com.seal.mq.service;
+package com.seal.activemq.service;
 
-import com.seal.mq.config.ActiveMqConfig;
+import com.seal.activemq.config.ActiveMqConfig;
 import org.apache.activemq.command.ActiveMQQueue;
 import org.apache.activemq.command.ActiveMQTopic;
 import org.junit.Test;
