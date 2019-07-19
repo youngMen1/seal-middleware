@@ -2,27 +2,25 @@
 server:
   port: 9002
 
-
-## ¶¨Ê±ÈÎÎñ
+## å®šæ—¶ä»»åŠ¡
 spring:
   application:
     name: elastic-visual-daemon
-  # ±£´æ¶¨Ê±ÈÎÎñµÄÊı¾İÔ´
+  # ä¿å­˜å®šæ—¶ä»»åŠ¡çš„æ•°æ®æº
   datasource:
     name: test
     type: com.alibaba.druid.pool.DruidDataSource
     druid:
       driver-class-name: com.mysql.jdbc.Driver
-      url: jdbc:mysql://192.168.1.XX:3306/gdfl_channel?allowMultiQueries=true&useSSL=false&serverTimezone=UTC
+      url: jdbc:mysql://192.168.1.xx:3306/gdfl_channel?allowMultiQueries=true&useSSL=false&serverTimezone=UTC
       username: root
       password: Gdfl@123456
   elasticjob:
-    # ·Ö²¼Ê½ÈÎÎñĞ­µ÷ÒÀÀµzookeeper
+    # åˆ†å¸ƒå¼ä»»åŠ¡åè°ƒä¾èµ–zookeeper
     zookeeper:
-      // TODO
       server-lists: 47.107.152.xx:2181
       namespace: elastic-visual-daemon
-    # ÆÕÍ¨ÈÎÎñ
+    # æ™®é€šä»»åŠ¡
     simples:
       spring-simple-job:
         job-class: com.seal.daemon.elasticvisualdaemon.job.TplhkSimpleJob
@@ -40,7 +38,7 @@ spring:
         eventTraceRdbDataSource: 'dataSource'
         listener:
           listener-class: com.seal.daemon.elasticvisualdaemon.listener.TplhkElasticJobListener
-    # ¼òµ¥ÈÎÎñ
+    # ç®€å•ä»»åŠ¡
     dataflows:
       spring-dataflow-job:
         job-class: com.seal.daemon.elasticvisualdaemon.job.TplhkDataflowJob
@@ -53,10 +51,10 @@ spring:
           distributed-listener-class: com.seal.daemon.elasticvisualdaemon.listener.TplhkDistributeElasticJobListener
           started-timeout-milliseconds: 5000
           completed-timeout-milliseconds: 10000
-# ×¢²áÖĞĞÄÅäÖÃ
+# æ³¨å†Œä¸­å¿ƒé…ç½®
 eureka:
   instance:
     prefer-ip-address: true
   client:
     service-url:
-      defaultZone: http://211.159.189.77:22001/eureka/,http://134.175.12.243:22002/eureka/
+      defaultZone: http://211.159.189.xx:22001/eureka/,http://134.175.12.xx:22002/eureka/
