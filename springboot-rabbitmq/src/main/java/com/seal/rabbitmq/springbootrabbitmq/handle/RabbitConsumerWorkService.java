@@ -1,7 +1,7 @@
 package com.seal.rabbitmq.springbootrabbitmq.handle;
 
 import com.rabbitmq.client.Channel;
-import com.seal.rabbitmq.springbootrabbitmq.config.RabbitMqConfig;
+import com.seal.rabbitmq.springbootrabbitmq.config.QueueRabbitConfig;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.amqp.rabbit.annotation.RabbitListener;
 import org.springframework.amqp.support.AmqpHeaders;
@@ -14,25 +14,24 @@ import java.io.IOException;
  * @author zhiqiang.feng
  * @version 1.0
  * @date-time 2018/11/13 13:55
- * @description 消费者
+ * @description work模式 消费者
  **/
 @Slf4j
 @Component
-public class RabbitConsumerService {
+public class RabbitConsumerWorkService {
 
-    @RabbitListener(queues = RabbitMqConfig.QUEUE_NAME, errorHandler = "conditionRabbitListenerErrorHandler")
+    @RabbitListener(queues = QueueRabbitConfig.QUEUE_NAME, errorHandler = "conditionRabbitListenerErrorHandler")
     public void receiveSearchConditionRequest(String message, Channel channel,
-                                              @Header(AmqpHeaders.DELIVERY_TAG) long tag) {
+                                              @Header(AmqpHeaders.DELIVERY_TAG) long tag) throws IOException {
         try {
-
 
             log.info("==============" + message);
 
 
-            // 消息确认
+            // 消息确认,false表示使用手动确认模式
             channel.basicAck(tag, false);
         } catch (IOException e) {
-            e.printStackTrace();
+            channel.basicNack(tag, false, false);
         }
     }
 }
