@@ -1,4 +1,4 @@
-package com.seal.rabbitmq.springbootrabbitmq.Listener;
+package com.seal.rabbitmq.springbootrabbitmq.listener;
 
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.amqp.core.Message;
