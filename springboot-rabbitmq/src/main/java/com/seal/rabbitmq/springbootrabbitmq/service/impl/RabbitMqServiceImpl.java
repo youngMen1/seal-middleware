@@ -21,6 +21,6 @@ public class RabbitMqServiceImpl implements RabbitMqService {
 
     @Override
     public void sendMessage(String message) {
-
+        rabbitTemplate.convertAndSend("","");
     }
 }
