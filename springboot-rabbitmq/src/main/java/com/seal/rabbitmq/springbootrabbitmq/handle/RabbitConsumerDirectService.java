@@ -1,11 +1,8 @@
 package com.seal.rabbitmq.springbootrabbitmq.handle;
 
 import com.rabbitmq.client.Channel;
-import com.seal.rabbitmq.springbootrabbitmq.config.TopicRabbitConfig;
+import com.seal.rabbitmq.springbootrabbitmq.config.DirectRabbitConfig;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.amqp.rabbit.annotation.Exchange;
-import org.springframework.amqp.rabbit.annotation.Queue;
-import org.springframework.amqp.rabbit.annotation.QueueBinding;
 import org.springframework.amqp.rabbit.annotation.RabbitListener;
 import org.springframework.amqp.support.AmqpHeaders;
 import org.springframework.messaging.handler.annotation.Header;
@@ -22,9 +19,9 @@ import java.io.IOException;
  **/
 @Slf4j
 @Component
-public class RabbitConsumeTopicService {
+public class RabbitConsumerDirectService {
 
-    @RabbitListener(queues = TopicRabbitConfig.TOPIC_A, errorHandler = "conditionRabbitListenerErrorHandler")
+    @RabbitListener(queues = DirectRabbitConfig.DIRECT_A, errorHandler = "conditionRabbitListenerErrorHandler")
     public void receiveSearchConditionRequest(String message, Channel channel,
                                               @Header(AmqpHeaders.DELIVERY_TAG) long tag) throws IOException {
         try {
@@ -40,8 +37,24 @@ public class RabbitConsumeTopicService {
     }
 
 
-    @RabbitListener(queues = TopicRabbitConfig.TOPIC_B, errorHandler = "conditionRabbitListenerErrorHandler")
+    @RabbitListener(queues = DirectRabbitConfig.DIRECT_B, errorHandler = "conditionRabbitListenerErrorHandler")
     public void receiveSearchConditionRequest2(String message, Channel channel,
+                                               @Header(AmqpHeaders.DELIVERY_TAG) long tag) throws IOException {
+        try {
+
+            log.info("==============" + message);
+
+
+            // 消息确认,false表示使用手动确认模式
+            channel.basicAck(tag, false);
+        } catch (IOException e) {
+            channel.basicNack(tag, false, false);
+        }
+    }
+
+
+    @RabbitListener(queues = DirectRabbitConfig.DIRECT_C, errorHandler = "conditionRabbitListenerErrorHandler")
+    public void receiveSearchConditionRequest3(String message, Channel channel,
                                                @Header(AmqpHeaders.DELIVERY_TAG) long tag) throws IOException {
         try {
 

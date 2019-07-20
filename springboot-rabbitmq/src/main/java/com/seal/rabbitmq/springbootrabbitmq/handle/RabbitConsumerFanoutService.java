@@ -19,7 +19,7 @@ import java.io.IOException;
  **/
 @Slf4j
 @Component
-public class RabbitConsumeFanoutService {
+public class RabbitConsumerFanoutService {
 
     @RabbitListener(queues = FanoutRabbitConfig.FANOUT_A, errorHandler = "conditionRabbitListenerErrorHandler")
     public void process(String message, Channel channel,
