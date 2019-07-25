@@ -5,7 +5,12 @@ import org.apache.activemq.command.ActiveMQTopic;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.jms.annotation.EnableJms;
-
+/**
+ * @author zhiqiang.feng
+ * @version 1.0
+ * @date-time 2019/7/19 14:17
+ * @description
+ **/
 @Configuration
 @EnableJms
 public class JsmListeners {
