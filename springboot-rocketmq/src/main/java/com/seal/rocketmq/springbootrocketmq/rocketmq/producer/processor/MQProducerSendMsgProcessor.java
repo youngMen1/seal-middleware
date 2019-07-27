@@ -113,7 +113,6 @@ public class MQProducerSendMsgProcessor {
 	 * @param topic
 	 * @param tag
 	 * @param msg
-	 * 2018年3月2日 zhaowg
 	 */
 	private void validateSendMsg(TopicEnum topic, String tag, String msg) {
 		if(topic==null){
