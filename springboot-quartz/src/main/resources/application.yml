@@ -1,0 +1,10 @@
+server:
+  port: 9003
+
+spring:
+  application:
+    name: springboot-quartz
+  datasource:
+    url: jdbc:mysql://192.168.1.28:3306/gdfl_quartz?allowMultiQueries=true&useSSL=false
+    username: root
+    password: Gdfl@123456
