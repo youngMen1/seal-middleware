@@ -23,7 +23,7 @@ public class DirectRabbitConfig {
     public final static String DIRECT_C = "direct_C";
 
     /**
-     * 声明一个Topic类型的交换机
+     * 声明一个Direct类型的交换机
      */
     public static final String DIRECT_EXCHANGE_NAME = "direct.exchange";
 

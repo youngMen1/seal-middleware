@@ -24,7 +24,7 @@ public class FanoutRabbitConfig {
     public final static String FANOUT_C = "fanout_C";
 
     /**
-     * 声明一个Topic类型的交换机
+     * 声明一个Fanout类型的交换机
      */
     public static final String TOPIC_EXCHANGE_NAME = "fanout.exchange";
 
