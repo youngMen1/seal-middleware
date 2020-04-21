@@ -1,4 +1,4 @@
-package com.seal.pattern.service;
+package com.seal.pattern.factory;
 
 /**
  * 定义一个策略接口
