@@ -1,13 +1,14 @@
-## Elastic-Job
+# 1.分布式任务调度
+
+## 1.1.Elastic-Job
 Elastic-Job是一个分布式调度解决方案，由两个相互独立的子项目Elastic-Job-Lite和Elastic-Job-Cloud组成。
-Elastic-Job-Lite定位为轻量级无中心化解决方案，
-使用jar包的形式提供分布式任务的协调服务；
-Job-Cloud采用自研Mesos Framework的解决方案，额外提供资源治理、
-应用分发以及进程隔离等功能（PS:我在这里只说Elastic-Job-Lite，因为Job-Cloud我没去研究）。
-简单的说Elastic-Job-Lite就是一个分布式定时任务。
----
-## 消息队列
-### 一、 MQ背景&选型
+
+## 2.2.XXL-JOB
+XXL-JOB是一个轻量级分布式任务调度平台，其核心设计目标是开发迅速、学习简单、轻量级、易扩展。
+现已开放源代码并接入多家公司线上产品线，开箱即用。
+
+# 2.消息队列
+## MQ背景&选型
 消息队列作为高并发系统的核心组件之一，能够帮助业务系统解构提升开发效率和系统稳定性。主要具有以下优势：
 
 * 削峰填谷（主要解决瞬时写压力大于应用服务能力导致消息丢失、系统奔溃等问题）
@@ -33,7 +34,8 @@ Kafka的架构和涉及到的名词：
 * Leader：每个Replication集合中的Partition都会选出一个唯一的Leader，所有的读写请求都由Leader处理。其他Replicas从Leader处把数据更新同步到本地，过程类似大家熟悉的MySQL中的Binlog同步。
 * Broker：Kafka中使用Broker来接受Producer和Consumer的请求，并把Message持久化到本地磁盘。每个Cluster当中会选举出一个Broker来担任Controller，负责处理Partition的Leader选举，协调Partition迁移等工作。
 * ISR(In-Sync Replica)：是Replicas的一个子集，表示目前Alive且与Leader能够“Catch-up”的Replicas集合。由于读写都是首先落到Leader上，所以一般来说通过同步机制从Leader上拉取数据的Replica都会和Leader有一些延迟(包括了延迟时间和延迟条数两个维度)，任意一个超过阈值都会把该Replica踢出ISR。每个Partition都有它自己独立的ISR。
-### ActiveMq
+
+## 2.1.ActiveMq
 #### 1.ActiveMQ概述 
 企业消息软件从80年代起就存在，它不只是一种应用间消息传递风格，也是一种集成风格。因此，消息传递可以满足应用间的通知和互相操作。但是开源的解决方案是到最近10年才出现的。
 Apache ActiveMQ就是其中一种。它使应用间能以异步，松耦合方式交流。ActiveMQ 是Apache出品，最流行的，能力强劲的开源消息总线。
@@ -50,7 +52,7 @@ Apache ActiveMQ就是其中一种。它使应用间能以异步，松耦合方�
 * 8.代理器集群（Broker clustering）----为了利于扩展，多个ActiveMQ broker能够联合工作。这个方式就是network of brokers并且能支持多种拓扑结构;支持客户端-服务器，点对点。
 * 9.支持Ajax, 支持与Axis的整合
 
-### Kafka/Jafka
+## 2.2.Kafka/Jafka
 Kafka是Apache下的一个子项目，是一个高性能跨语言分布式发布/订阅消息队列系统，
 而Jafka是在Kafka之上孵化而来的，即Kafka的一个升级版。
 具有以下特性：快速持久化，可以在O(1)的系统开销下进行消息持久化；
@@ -61,12 +63,17 @@ Kafka是Apache下的一个子项目，是一个高性能跨语言分布式发布
 Apache Kafka相对于ActiveMQ是一个非常轻量级的消息系统，除了性能非常好之外，
 还是一个工作良好的分布式系统。
 
-### RabbitMq
+## 2.3.RabbitMq
 RabbitMQ是使用Erlang编写的一个开源的消息队列，本身支持很多的协议：AMQP，XMPP, SMTP, STOMP，也正因如此，它非常重量级，
 更适合于企业级的开发。同时实现了Broker构架，这意味着消息在发送给客户端时先在中心队列排队。
 对路由，负载均衡或者数据持久化都有很好的支持。
 
-### RocketMQ
+## 2.4.RocketMQ
+#### 基本概念
+下面是一张 RocketMQ 的部署结构图，里面涉及了 RocketMQ 核心的四大组件：Name Server、Broker、Producer、Consumer ，
+每个组件都可以部署成集群模式进行水平扩展。
+![img](/doc/微信截图_20191016103840.png)
+
 RocketMQ 是阿里巴巴在2012年开源的分布式消息中间件，目前已经捐赠给 Apache 软件基金会，
 并于2017年9月25日成为 Apache 的顶级项目。作为经历过多次阿里巴巴双十一这种“超级工程”的洗礼并有稳定出色表现的国产中间件，以其高性能、低延时和高可靠等特性近年来已经也被越来越多的国内企业使用。其主要特点有：
 * 1.灵活可扩展性
@@ -82,12 +89,7 @@ RocketMQ 除了支持普通消息，顺序消息之外还支持事务消息，�
 * 6.回溯消费
 回溯消费是指消费者已经消费成功的消息，由于业务上需求需要重新消费，RocketMQ 支持按照时间回溯消费，时间维度精确到毫秒，可以向前回溯，也可以向后回溯。
 
-#### 基本概念
-下面是一张 RocketMQ 的部署结构图，里面涉及了 RocketMQ 核心的四大组件：Name Server、Broker、Producer、Consumer ，
-每个组件都可以部署成集群模式进行水平扩展。
-![img](/doc/微信截图_20191016103840.png)
-
-### ZeroMQ
+## 2.5.ZeroMQ
 ZeroMQ号称最快的消息队列系统，尤其针对大吞吐量的需求场景。
 ZeroMQ能够实现RabbitMQ不擅长的高级/复杂的队列，但是开发人员需要自己组合多种技术框架，
 技术上的复杂度是对这MQ能够应用成功的挑战。ZeroMQ具有一个独特的非中间件的模式，
@@ -96,6 +98,3 @@ ZeroMQ能够实现RabbitMQ不擅长的高级/复杂的队列，但是开发人�
 但是ZeroMQ仅提供非持久性的队列，也就是说如果宕机，数据将会丢失。其中，
 Twitter的Storm 0.9.0以前的版本中默认使用ZeroMQ作为数据流的传输（Storm从0.9版本开始同时支持ZeroMQ和Netty作为传输模块）。
 
-## XXL-JOB
-XXL-JOB是一个轻量级分布式任务调度平台，其核心设计目标是开发迅速、学习简单、轻量级、易扩展。
-现已开放源代码并接入多家公司线上产品线，开箱即用。
