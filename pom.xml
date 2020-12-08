@@ -8,8 +8,8 @@
     <version>1.0.0</version>
     <packaging>pom</packaging>
 
-    <name>sealblog</name>
-    <description>消费者</description>
+    <name>seal-middleware</name>
+    <description>java各种中间件示例</description>
 
 
     <modules>
