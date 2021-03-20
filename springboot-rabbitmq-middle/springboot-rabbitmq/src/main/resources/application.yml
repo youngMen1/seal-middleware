@@ -1,0 +1,13 @@
+
+server:
+  port: 9001
+spring:
+  application:
+    name: test-services
+  rabbitmq:
+    host: ${RABBITMQ.HOST:192.168.1.28}
+    port: ${RABBITMQ.PORT:5672}
+    username: ${RABBITMQ.USERNAME:admin}
+    password: ${RABBITMQ.PASSWORD:admin@123}
+    publisher-confirms: true
+    publisher-returns: true

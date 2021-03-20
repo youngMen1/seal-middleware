@@ -17,6 +17,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
  * Consumer:消息消费者,就是接受消息的程序.
  * Channel:消息通道,在客户端的每个连接里,可建立多个channel.
  */
+@SpringBootApplication
 public class SpringbootRabbitmqApplication {
 
     public static void main(String[] args) {

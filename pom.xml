@@ -13,7 +13,6 @@
 
 
     <modules>
-        <module>springboot-rabbitmq</module>
         <module>springboot-quartz</module>
         <module>springboot-rocketmq</module>
         <module>springboot-activemq</module>
@@ -21,7 +20,7 @@
         <module>elastic-job</module>
         <module>xxl-job</module>
         <module>springboot-designpatterns</module>
-
+        <module>springboot-rabbitmq-middle</module>
     </modules>
 
 
