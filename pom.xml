@@ -21,6 +21,7 @@
         <module>xxl-job</module>
         <module>springboot-designpatterns</module>
         <module>springboot-rabbitmq-middle</module>
+        <module>springboot-redis-delayqueue-master</module>
     </modules>
 
 

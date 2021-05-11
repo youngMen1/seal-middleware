@@ -1,0 +1,28 @@
+server:
+  port: 9191
+  shutdown: graceful
+
+# 日志级别 (名称以logging.level开头，后面跟要输入日志的包名， 这里定义的级别优先于logback.xml里定义的级别)
+logging:
+  level:
+    root: info
+    cn.udream.delayqueue: debug
+
+spring:
+  application:
+    name: eventdriver
+  lifecycle:
+    timeout-per-shutdown-phase: 20s
+  redis:
+    # 单机版配置
+    host: 192.168.1.126
+    password: Zhiyuan20160416
+    # 集群版配置
+#    cluster:
+#      nodes: 192.168.1.126:6379
+#      max-redirects: 1
+#    lettuce:
+#      pool:
+#        max-idle: 16
+#        max-active: 32
+#        min-idle: 8
